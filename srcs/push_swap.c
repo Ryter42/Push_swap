@@ -9,7 +9,7 @@ int nbverif(char *nb)
 	i = 0;
 	while (i < ft_strlen(nb))
 	{
-		if (ft_isdigit(nb[i]))
+		if (ft_isdigit(nb[i]) == 0)
 			return (0);
 		i++;
 	}
@@ -35,7 +35,7 @@ int	pars(int av, char **ac, t_data *data)
 	// t_list tmp;
 	// t_list lst;
 	data->value = tab_nbverif(av, ac);
-	return(1);
+	return(data->value);
 }
 
 int	main(int av, char **ac)
