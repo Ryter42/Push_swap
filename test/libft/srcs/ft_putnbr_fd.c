@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:09:27 by emoreau           #+#    #+#             */
-/*   Updated: 2022/12/02 20:03:59 by emoreau          ###   ########.fr       */
+/*   Created: 2022/11/16 19:58:06 by emoreau           #+#    #+#             */
+/*   Updated: 2022/11/22 02:53:02 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	printnum(int nb, int fd)
 {
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	newlist->content = content;
-	newlist->next = NULL;
-	return (newlist);
+	if (nb > 9)
+		printnum (nb / 10, fd);
+	ft_putchar_fd (48 + nb % 10, fd);
 }
 
-t_list	*lstnewint(int value)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
-	newlist->next = NULL;
-	return (newlist);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	printnum(n, fd);
 }

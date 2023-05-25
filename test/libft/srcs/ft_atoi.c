@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:09:27 by emoreau           #+#    #+#             */
-/*   Updated: 2022/12/02 20:03:59 by emoreau          ###   ########.fr       */
+/*   Created: 2022/11/16 15:52:47 by emoreau           #+#    #+#             */
+/*   Updated: 2022/11/18 10:24:46 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_atoi(const char *nb)
 {
-	t_list	*newlist;
+	int		i;
+	int		s;
+	int		nbr;
+	char	*n;
 
-	newlist = malloc(sizeof(t_list));
-	newlist->content = content;
-	newlist->next = NULL;
-	return (newlist);
-}
-
-t_list	*lstnewint(int value)
-{
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
-	newlist->next = NULL;
-	return (newlist);
+	n = (char *)nb;
+	nbr = 0;
+	s = 1;
+	i = 0;
+	while ((n[i] > 6 && n[i] < 14) || n[i] == 32)
+		i++;
+	if (nb[i] == '-' || nb[i] == '+')
+	{
+		if (nb[i] == '-')
+			s = -s;
+		i++;
+	}
+	while (nb[i] > 47 && nb[i] < 58)
+	{
+		nbr = nbr * 10 + nb[i] - 48;
+		i++;
+	}
+	return (nbr * s);
 }

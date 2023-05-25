@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:09:27 by emoreau           #+#    #+#             */
-/*   Updated: 2022/12/02 20:03:59 by emoreau          ###   ########.fr       */
+/*   Created: 2022/12/28 20:04:40 by emoreau           #+#    #+#             */
+/*   Updated: 2023/01/25 11:39:20 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/ft_printf.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_printf(const char *format, ...)
 {
-	t_list	*newlist;
+	int		len;
+	va_list	arg;
 
-	newlist = malloc(sizeof(t_list));
-	newlist->content = content;
-	newlist->next = NULL;
-	return (newlist);
-}
-
-t_list	*lstnewint(int value)
-{
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
-	newlist->next = NULL;
-	return (newlist);
+	va_start(arg, format);
+	len = 0;
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			len = printarg(arg, *format, &len);
+		}
+		else
+		{
+			write(1, format, 1);
+			len++;
+		}
+		format++;
+	}
+	va_end(arg);
+	return (len);
 }

@@ -6,7 +6,6 @@ typedef struct s_data
 {
 	char **nbr;
 	int	*nb;
-	int	nbnb;
 	int			value;
 }	t_data;
 

@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:09:27 by emoreau           #+#    #+#             */
-/*   Updated: 2022/12/02 20:03:59 by emoreau          ###   ########.fr       */
+/*   Created: 2022/11/08 12:38:07 by emoreau           #+#    #+#             */
+/*   Updated: 2022/11/18 14:44:27 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_isalnum(int c)
 {
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	newlist->content = content;
-	newlist->next = NULL;
-	return (newlist);
+	if ((c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123))
+		return (1);
+	return (0);
 }
-
-t_list	*lstnewint(int value)
+/*
+int	main (void)
 {
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
-	newlist->next = NULL;
-	return (newlist);
+	char c = 111111111111111111111111111;
+	int cc = c;
+	printf("%d", ft_isalnum(cc));
 }
+*/

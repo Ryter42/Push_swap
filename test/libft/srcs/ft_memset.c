@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:09:27 by emoreau           #+#    #+#             */
-/*   Updated: 2022/12/02 20:03:59 by emoreau          ###   ########.fr       */
+/*   Created: 2022/11/08 14:20:58 by emoreau           #+#    #+#             */
+/*   Updated: 2022/11/18 11:48:54 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_list	*newlist;
+	size_t	i;
+	char	*tab;
 
-	newlist = malloc(sizeof(t_list));
-	newlist->content = content;
-	newlist->next = NULL;
-	return (newlist);
+	tab = s;
+	i = 0;
+	while (i < n)
+	{
+		tab[i] = c;
+		i++;
+	}
+	return (s);
 }
-
-t_list	*lstnewint(int value)
+/*
+int	main(void)
 {
-	t_list	*newlist;
+	void	*s;
+	int		i;
 
-	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
-	newlist->next = NULL;
-	return (newlist);
+	i = 0;
+	while (i < 3)
+	{
+		printf("%s", (char *) ft_memset(s, 49, 3));
+		i++;
+	}
 }
+*/

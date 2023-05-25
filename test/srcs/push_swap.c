@@ -39,8 +39,8 @@ char	*nbcat(int av, char **ac)
 	str = ac[1];
 	while (i < av)
 	{
-		str = ft_strjoin(str, " ");
 		str = ft_strjoin(str, ac[i]);
+		str = ft_strjoin(str, " ");
 		i++;
 	}
 	return (str);
@@ -73,7 +73,7 @@ int	*atotab(char **nbr)
 	return (nb);
 }
 
-int	*getint(int av, char **ac, t_data **data)
+int	*getint(int av, char **ac)
 {
 	char 	*nb;
 	char 	**nbr;
@@ -82,49 +82,33 @@ int	*getint(int av, char **ac, t_data **data)
 	nb = nbcat(av, ac);
 	nbr = ft_split(nb, ' ');
 	nombre = atotab(nbr);
-	(*data)->nbnb = strllen(nbr);
+
 	return (nombre);
 }
 
-t_list *getlst(int *nb)
+int	*pars(int av, char **ac, t_data *data)
 {
-	t_list	*lsta;
-	t_list	*tmp;
-	int	i;
-
-	i = 1;
-	lsta = lstnewint(nb[0]);
-	while (nb[i])
-	{
-		tmp = lstnewint(nb[i]);
-		ft_lstadd_back(&lsta, tmp);
-		i++;
-	}
-	return (lsta);
-}
-
-t_list	*pars(int av, char **ac, t_data **data)
-{
+	// t_list tmp;
+	// t_list lst;
 	int	*nb;
 
+	(void)data;
 	if (tab_nbverif(av, ac) == 0)
 		return (0);
-	nb = getint(av, ac, data);
-	return(getlst(nb));
+	nb = getint(av, ac);
+	return(nb);
 }
 
 int	main(int av, char **ac)
 {
-	t_list	*lsta;
-	t_data	*data;
-
-	if (av < 2)
-		return (0);
-	lsta = pars(av, ac, &data);
-	while (lsta->next)
+	// t_list *liste_a;
+	// t_list *liste_b;
+	t_data data;
+	int	*nb = pars(av, ac, &data);
+	while (*nb)
 	{
-		printf("%d\n", lsta->value);
-		lsta = lsta->next;
+		printf("%d\n", *nb);
+		nb++;
 	}
 return (0);
 }

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:09:27 by emoreau           #+#    #+#             */
-/*   Updated: 2022/12/02 20:03:59 by emoreau          ###   ########.fr       */
+/*   Created: 2022/11/08 12:38:36 by emoreau           #+#    #+#             */
+/*   Updated: 2022/11/16 14:39:01 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_isdigit(int c)
 {
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	newlist->content = content;
-	newlist->next = NULL;
-	return (newlist);
+	if (c > 47 && c < 58)
+		return (1);
+	else
+		return (0);
 }
-
-t_list	*lstnewint(int value)
+/*
+#include <stdio.h>
+int	main(void)
 {
-	t_list	*newlist;
+	char c = '8';
+	int i = c;
+	printf("%d", ft_isdigit(c));
 
-	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
-	newlist->next = NULL;
-	return (newlist);
 }
+*/

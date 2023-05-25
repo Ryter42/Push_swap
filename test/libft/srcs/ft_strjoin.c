@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:09:27 by emoreau           #+#    #+#             */
-/*   Updated: 2022/12/02 20:03:59 by emoreau          ###   ########.fr       */
+/*   Created: 2022/11/16 18:14:21 by emoreau           #+#    #+#             */
+/*   Updated: 2023/05/21 19:24:18 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstnew(void *content)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_list	*newlist;
+	char	*s;
+	int		i;
 
-	newlist = malloc(sizeof(t_list));
-	newlist->content = content;
-	newlist->next = NULL;
-	return (newlist);
-}
-
-t_list	*lstnewint(int value)
-{
-	t_list	*newlist;
-
-	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
-	newlist->next = NULL;
-	return (newlist);
+	i = ft_strlen(s1) + ft_strlen(s2);
+	s = malloc(sizeof(char) * i + 1);
+	if (!s)
+		return (NULL);
+	while (*s1)
+	{
+		*s = *s1;
+		s++;
+		s1++;
+	}
+	while (*s2)
+	{
+		*s = *s2;
+		s++;
+		s2++;
+	}
+	*s = 0;
+	return (s - i);
 }

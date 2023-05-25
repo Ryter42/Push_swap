@@ -1,33 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/24 16:09:27 by emoreau           #+#    #+#             */
-/*   Updated: 2022/12/02 20:03:59 by emoreau          ###   ########.fr       */
+/*   Created: 2022/11/24 19:34:59 by emoreau           #+#    #+#             */
+/*   Updated: 2022/11/26 18:14:04 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*newlist;
+	int	i;
 
-	newlist = malloc(sizeof(t_list));
-	newlist->content = content;
-	newlist->next = NULL;
-	return (newlist);
+	i = 0;
+	while (lst != NULL)
+	{
+			lst = lst->next;
+			i++;
+	}
+	return (i);
 }
 
-t_list	*lstnewint(int value)
+/*
+int		main(void)
 {
-	t_list	*newlist;
+	t_list elm1;
+	t_list elm2;
+	t_list elm3;
+	
+	elm1 = malloc(sizeof(t_list));
+	elm2 = malloc(sizeof(t_list));
+	elm3 = malloc(sizeof(t_list));
 
-	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
-	newlist->next = NULL;
-	return (newlist);
+	
+	elm1.next = &elm2;
+	elm2.next = &elm3;
+	elm3.next = NULL;
+	printf("%d", ft_lstsize(&elm1));
 }
+*/
