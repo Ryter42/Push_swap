@@ -63,7 +63,7 @@ int		main(void)
 //	last = ft_lstlast(lst);
 	printf("BEGIN : %d\n", *(int *)(lst->content));
 	printf("LAST : %d\n", *(int *)(last->content));
-//	ft_lstadd_back(&lst, new);
+//	ft_listadd_back(&lst, new);
 
 //	printf("MTN BEGIN: %d\n", *(int *)(lst->content));
 	

@@ -88,19 +88,19 @@ int	*getint(int av, char **ac, t_data **data)
 
 t_list *getlst(int *nb, t_data *data)
 {
-	t_list	*lsta;
+	t_list	*lista;
 	t_list	*tmp;
 	int	i;
 
 	i = 1;
-	lsta = lstnewint(nb[0]);
+	lista = lstnewint(nb[0]);
 	while (i < data->nbnb)
 	{
 		tmp = lstnewint(nb[i]);
-		ft_lstadd_back(&lsta, tmp);
+		ft_listadd_back(&lista, tmp);
 		i++;
 	}
-	return (lsta);
+	return (lista);
 }
 
 t_list	*pars(int av, char **ac, t_data **data)
@@ -113,29 +113,32 @@ t_list	*pars(int av, char **ac, t_data **data)
 	return(getlst(nb, *data));
 }
 
-int	init(int av, char **ac, t_data **data, t_list **lsta)
+int	init(int av, char **ac, t_data **data, t_list **lista)
 {
 	*data = malloc(sizeof(t_data));
 	if (!*data)
 		return (0);
-	*lsta = pars(av, ac, data);
+	*lista = pars(av, ac, data);
+	if (!*lista)
+		return (0);
 	return (1);
 }
 
 int	main(int av, char **ac)
 {
-	t_list	*lsta;
+	t_list	*lista;
 	// t_list	*lstb;
 	t_data	*data;
 
 	if (av < 2)
 		return (0);
-	init(av, ac, &data, &lsta);
-	while (data->lsta->next)
+	if (init(av, ac, &data, &lista) == 0)
+		return (0);
+	while (lista->next)
 	{
-		printf("%d\n", lsta->value);
-		lsta = lsta->next;
+		printf("%d\n", lista->value);
+		lista = lista->next;
 	}
-		printf("%d\n", lsta->value);
+		printf("%d\n", lista->value);
 return (0);
 }

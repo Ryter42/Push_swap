@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_listadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_listadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
@@ -59,7 +59,7 @@ int		main(void)
 	//last = ft_lstlast(lst);
 	printf("%d\n", *(int *)(lst->content));
 	//printf("LAST: %d\n", *(int *)(last->content));
-	ft_lstadd_back(&lst, new);
+	ft_listadd_back(&lst, new);
 
 	printf("MTN BEGIN: %d\n", *(int *)(lst->content));
 	

@@ -4,7 +4,7 @@
 
 typedef struct s_data
 {
-	t_list	*lsta;
+	t_list	*lista;
 	char **nbr;
 	int	*nb;
 	int	nbnb;
