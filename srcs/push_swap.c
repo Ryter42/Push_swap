@@ -86,7 +86,7 @@ int	*getint(int av, char **ac, t_data **data)
 	return (nombre);
 }
 
-t_list *getlst(int *nb)
+t_list *getlst(int *nb, t_data *data)
 {
 	t_list	*lsta;
 	t_list	*tmp;
@@ -94,7 +94,7 @@ t_list *getlst(int *nb)
 
 	i = 1;
 	lsta = lstnewint(nb[0]);
-	while (nb[i])
+	while (i < data->nbnb)
 	{
 		tmp = lstnewint(nb[i]);
 		ft_lstadd_back(&lsta, tmp);
@@ -110,21 +110,32 @@ t_list	*pars(int av, char **ac, t_data **data)
 	if (tab_nbverif(av, ac) == 0)
 		return (0);
 	nb = getint(av, ac, data);
-	return(getlst(nb));
+	return(getlst(nb, *data));
+}
+
+int	init(int av, char **ac, t_data **data, t_list **lsta)
+{
+	*data = malloc(sizeof(t_data));
+	if (!*data)
+		return (0);
+	*lsta = pars(av, ac, data);
+	return (1);
 }
 
 int	main(int av, char **ac)
 {
 	t_list	*lsta;
+	// t_list	*lstb;
 	t_data	*data;
 
 	if (av < 2)
 		return (0);
-	lsta = pars(av, ac, &data);
-	while (lsta->next)
+	init(av, ac, &data, &lsta);
+	while (data->lsta->next)
 	{
 		printf("%d\n", lsta->value);
 		lsta = lsta->next;
 	}
+		printf("%d\n", lsta->value);
 return (0);
 }
