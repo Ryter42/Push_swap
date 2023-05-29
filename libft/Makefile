@@ -52,10 +52,10 @@ SRCS = $(SRC_DIR)ft_strlen.c\
 		$(SRC_DIR)ft_putendl_fd.c\
 		$(SRC_DIR)ft_putnbr_fd.c\
 		$(SRC_DIR)ft_lstnew.c\
-		$(SRC_DIR)ft_listadd_front.c\
+		$(SRC_DIR)ft_lstadd_front.c\
 		$(SRC_DIR)ft_lstsize.c\
 		$(SRC_DIR)ft_lstlast.c\
-		$(SRC_DIR)ft_listadd_back.c\
+		$(SRC_DIR)ft_lstadd_back.c\
 		$(SRC_DIR)ft_lstdelone.c\
 		$(SRC_DIR)ft_lstclear.c\
 		$(SRC_DIR)ft_lstiter.c\

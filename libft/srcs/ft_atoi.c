@@ -38,3 +38,15 @@ int	ft_atoi(const char *nb)
 	}
 	return (nbr * s);
 }
+
+
+// int	main(int av, char **ac)
+// {
+// 	if (av == 5)
+// 	{
+// 		printf("%d\n", ft_atoi(ac[1]));
+// 		printf("%d\n", ft_atoi(ac[2]));
+// 		printf("%d\n", ft_atoi(ac[3]));
+// 		printf("%d\n", ft_atoi(ac[4]));
+// 	}
+// }

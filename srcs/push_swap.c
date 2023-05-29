@@ -1,6 +1,14 @@
 # include "../includes/push_swap.h"
 
-// int	listinit
+int	verisign(char *nb, int i)
+{
+	if (ft_isdigit(nb[i + 1]) == 1)
+	{
+		if (i == 0 || nb[i - 1] == ' ')
+			return (1);
+	}
+	return(0);
+}
 
 int nbverif(char *nb)
 {
@@ -10,7 +18,15 @@ int nbverif(char *nb)
 	while (i < ft_strlen(nb))
 	{
 		if (ft_isdigit(nb[i]) == 0 && nb[i] != ' ')
-			return (0);
+		{
+			if (nb[i] != '+' || nb[i] != '-')
+			{
+				if (verisign(nb, i) == 0)
+					return (0);
+			}
+			else
+				return (0);
+		}
 		i++;
 	}
 	return (1);
@@ -73,31 +89,47 @@ int	*atotab(char **nbr)
 	return (nb);
 }
 
+int	veridouble(int *nb, int size)
+{
+	int	i;
+
+	i = 1;
+	while (i < size)
+	{
+		if (nb[i] == nb[i - 1])
+			return(0);
+		i++;
+	}
+	return (1);
+}
+
 int	*getint(int av, char **ac, t_data **data)
 {
 	char 	*nb;
-	char 	**nbr;
-	int		*nombre;
 
 	nb = nbcat(av, ac);
-	nbr = ft_split(nb, ' ');
-	nombre = atotab(nbr);
-	(*data)->nbnb = strllen(nbr);
-	return (nombre);
+	(*data)->charnb = ft_split(nb, ' ');
+	(*data)->intnb= atotab((*data)->charnb);
+	(*data)->nbnb = strllen((*data)->charnb);
+	tritab(*data);
+	if (veridouble((*data)->intnb, (*data)->nbnb) == 0)
+		return(NULL);
+	(*data)->mediane = (*data)->intnb[(*data)->nbnb / 2];
+	return ((*data)->intnb);
 }
 
-t_list *getlst(int *nb, t_data *data)
+t_list *getlst(t_data *data)
 {
 	t_list	*lista;
 	t_list	*tmp;
 	int	i;
 
 	i = 1;
-	lista = lstnewint(nb[0]);
+	lista = lstnewint(data->intnb[0]);
 	while (i < data->nbnb)
 	{
-		tmp = lstnewint(nb[i]);
-		ft_listadd_back(&lista, tmp);
+		tmp = lstnewint(data->intnb[i]);
+		ft_lstadd_back(&lista, tmp);
 		i++;
 	}
 	return (lista);
@@ -105,40 +137,102 @@ t_list *getlst(int *nb, t_data *data)
 
 t_list	*pars(int av, char **ac, t_data **data)
 {
-	int	*nb;
-
 	if (tab_nbverif(av, ac) == 0)
 		return (0);
-	nb = getint(av, ac, data);
-	return(getlst(nb, *data));
+	if (!getint(av, ac, data))
+		return (NULL);
+	return(getlst(*data));
 }
 
-int	init(int av, char **ac, t_data **data, t_list **lista)
+int	init(int av, char **ac, t_data **data, t_list **lista, t_list **listb)
 {
 	*data = malloc(sizeof(t_data));
 	if (!*data)
 		return (0);
+	*listb = NULL;
 	*lista = pars(av, ac, data);
 	if (!*lista)
 		return (0);
 	return (1);
 }
 
+int	tritabverif(t_data *data)
+{
+	int	i;
+
+	i = 1;
+	while (i < data->nbnb)
+	{
+		if (data->intnb[i - 1] > data->intnb[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	tritab(t_data *data)
+{
+	int	tmp;
+	int	i;
+
+	i = 0;
+	while (tritabverif(data) == 0)
+	{
+		while (i < data->nbnb - 1)
+		{
+			if (data->intnb[i] > data->intnb[i + 1])
+			{
+				tmp = data->intnb[i];
+				data->intnb[i] = data->intnb[i + 1];
+				data->intnb[i + 1] = tmp;
+			}
+			i++;
+		}
+		i = 0;
+	}
+}
+
+int	mediane(t_data *data, t_list *lista, t_list *listb)
+{
+	while (lista)
+	{
+		if (lista->value < data->mediane)
+			push(lista, listb);
+		else
+			push(lista, listb);
+			rotate(listb);
+	}
+	
+	return (1);	
+}
+
+int	algo(t_data *data, t_list *lista, t_list *listb)
+{
+	mediane(data, lista, listb);
+	return (0);
+}
+
 int	main(int av, char **ac)
 {
 	t_list	*lista;
-	// t_list	*lstb;
+	t_list	*listb;
 	t_data	*data;
 
 	if (av < 2)
 		return (0);
-	if (init(av, ac, &data, &lista) == 0)
+	if (init(av, ac, &data, &lista, &listb) == 0)
 		return (0);
-	while (lista->next)
+	// algo(data, lista, listb);
+	while (*(data->intnb))
 	{
-		printf("%d\n", lista->value);
-		lista = lista->next;
+		printf("%d\n", *(data->intnb));
+		data->intnb++;
 	}
-		printf("%d\n", lista->value);
+printf("mediane = %d\n", data->mediane);
+	while (listb)
+	{
+		printf("%d\n", listb->value);
+		listb = listb->next;
+	}
 return (0);
 }

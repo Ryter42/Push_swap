@@ -22,12 +22,12 @@ t_list	*ft_lstnew(void *content)
 	return (newlist);
 }
 
-t_list	*lstnewint(int value)
+t_list	*lstnewint(int content)
 {
 	t_list	*newlist;
 
 	newlist = malloc(sizeof(t_list));
-	newlist->value = value;
+	newlist->value = content;
 	newlist->next = NULL;
 	return (newlist);
 }
