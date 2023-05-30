@@ -15,7 +15,7 @@ typedef struct s_data
 void	tritab(t_data *data);
 int	tritabverif(t_data *data);
 void push(t_list *list1, t_list *list2);
-void	rotate(t_list lst);
+void	rotate(t_list *lst);
 
 
 #endif

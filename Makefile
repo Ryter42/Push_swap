@@ -13,6 +13,7 @@
 SRC_DIR		= ./srcs/
 OBJ_DIR	= ./obj/
 SRCS	=	push_swap.c\
+			move.c
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 

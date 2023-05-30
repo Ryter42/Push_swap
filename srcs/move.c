@@ -8,6 +8,6 @@ void push(t_list *list1, t_list *list2)
 
 void	rotate(t_list *lst)
 {
-	ft_lstadd_back(&list2, list1);
-	list1 = list1->next;
+	ft_lstadd_back(&lst, lst);
+	lst = lst->next;
 }
