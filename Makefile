@@ -6,14 +6,18 @@
 #    By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 19:25:41 by emoreau           #+#    #+#              #
-#    Updated: 2023/04/11 18:08:38 by emoreau          ###   ########.fr        #
+#    Updated: 2023/05/30 18:18:30 by emoreau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_DIR		= ./srcs/
 OBJ_DIR	= ./obj/
 SRCS	=	push_swap.c\
-			move.c
+			move.c\
+			algo.c\
+			init.c\
+			verif.c\
+			parsing.c
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 

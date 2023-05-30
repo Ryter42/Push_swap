@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 17:47:34 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/30 20:43:38 by emoreau          ###   ########.fr       */
+/*   Created: 2023/05/30 18:05:55 by emoreau           #+#    #+#             */
+/*   Updated: 2023/05/30 20:43:44 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-int	main(int av, char **ac)
-{
-	t_list	*lista;
-	t_list	*listb;
-	t_data	*data;
 
-	if (av < 2)
-		return (0);
-	if (init(av, ac, &data, &lista, &listb) == 0)
-		return (0);
-	algo(data, &lista, &listb);
-	while (*(data->intnb))
+int	algo(t_data *data, t_list **lista, t_list **listb)
+{
+	mediane(data, lista, listb);
+	return (0);
+}
+
+int	mediane(t_data *data, t_list **lista, t_list **listb)
+{
+	while (*lista)
 	{
-		printf("%d\n", *(data->intnb));
-		data->intnb++;
+		if ((*lista)->value < data->mediane)
+			push(lista, listb);
+		else
+		{
+			push(lista, listb);
+			rotate(listb);
+		}
+		// (*lista) = (*lista)->next;
 	}
-printf("mediane = %d\n", data->mediane);
-	while (listb)
-	{
-		printf("%d\n", listb->value);
-		listb = listb->next;
-	}
-return (0);
+	
+	return (1);	
 }
