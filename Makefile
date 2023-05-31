@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+         #
+#    By: elias <elias@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 19:25:41 by emoreau           #+#    #+#              #
-#    Updated: 2023/05/30 18:18:30 by emoreau          ###   ########.fr        #
+#    Updated: 2023/05/31 17:16:23 by elias            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ SRC_DIR		= ./srcs/
 OBJ_DIR	= ./obj/
 SRCS	=	push_swap.c\
 			move.c\
+			move2.c\
 			algo.c\
 			init.c\
 			verif.c\
