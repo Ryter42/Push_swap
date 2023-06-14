@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:00:57 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/30 18:04:12 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/01 22:36:16 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int	init(int av, char **ac, t_data **data, t_list **lista, t_list **listb)
 	*lista = pars(av, ac, data);
 	if (!*lista)
 		return (0);
+	tritab(*data);
+	if (veridouble((*data)->intnb, (*data)->nbnb) == 0)
+		return(0);
+	(*data)->mediane = (*data)->intnb[(*data)->nbnb / 2];
 	return (1);
 }
 
@@ -32,10 +36,6 @@ int	*getint(int av, char **ac, t_data **data)
 	(*data)->charnb = ft_split(nb, ' ');
 	(*data)->intnb= atotab((*data)->charnb);
 	(*data)->nbnb = strllen((*data)->charnb);
-	tritab(*data);
-	if (veridouble((*data)->intnb, (*data)->nbnb) == 0)
-		return(NULL);
-	(*data)->mediane = (*data)->intnb[(*data)->nbnb / 2];
 	return ((*data)->intnb);
 }
 

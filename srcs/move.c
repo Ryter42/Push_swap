@@ -6,13 +6,13 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:52 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/31 18:26:16 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/03 16:12:52 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void push(t_list **list1, t_list **list2)
+void push(t_list **list1, t_list **list2, char c)
 {
 	t_list *tmp;
 
@@ -22,9 +22,13 @@ void push(t_list **list1, t_list **list2)
 	*list1 = (*list1)->next;
 	tmp->next = *list2;
 	*list2 = tmp;
+	if (c == 'a')
+		write(1, "pa\n", 3);
+	if (c == 'b')
+		write(1, "pb\n", 3);
 }
 
-void	rotate(t_list **lst)
+void	rotate(t_list **lst, char c)
 {
 	t_list *tmp;
 
@@ -34,40 +38,54 @@ void	rotate(t_list **lst)
 	(*lst) = (*lst)->next;
 	tmp->next = NULL;
 	ft_lstadd_back(lst, tmp);
+	if (c == 'a')
+		write(1, "ra\n", 3);
+	else if (c == 'b')
+		write(1, "rb\n", 3);
+	else
+	write(1, "rr\n", 3);
 }
 
-void	swap(t_list **lst)
+void	revrotate(t_list **lst, char c)
 {
-	t_list	*tmp;
+	// t_list	*tmp;
+	// t_list	*tmp2;
 
-	tmp = *lst;
-	*lst = (*lst)->next;
-	tmp->next = (*lst)->next;
-	(*lst)->next = tmp;
+	// if (!(*lst))
+	// 	return ;
+	// tmp = lstfindavantlast(*lst);
+	// tmp2 = tmp->next;
+	// tmp->next = NULL;
+	// tmp2->next = *lst;
+	// *lst = tmp2;
+	t_list	*temp;
+	t_list	*temp_2;
 
-}
-
-void	revrotate(t_list **lst)
-{
-	t_list	*tmp;
-	t_list	*tmp2;
-
-	tmp = lstfindavantlast(*lst);
-	tmp2 = tmp->next;
-	tmp->next = NULL;
-	tmp2->next = *lst;
-	*lst = tmp2;
-
+	if (!(*lst))
+		return ;
+	temp = *lst;
+	while (temp->next->next != NULL)
+		temp = temp->next;
+	temp_2 = temp->next;
+	temp->next = NULL;
+	temp_2->next = *lst;
+	*lst = temp_2;
+	if (c == 'a')
+		write(1, "rra\n", 4);
+	else if (c == 'b')
+		write(1, "rrb\n", 4);
+	else
+		write(1, "rrr\n", 4);
 }
 
 void	rr(t_list **lst1, t_list **lst2)
 {
-	rotate(lst1);
-	rotate(lst2);
+	rotate(lst1, 'r');
+	rotate(lst2, 'r');
 }
 
-void	rrr(t_list *lst1, t_list *lst2)
+void	rrr(t_list **lst1, t_list **lst2)
 {
-	revrotate(&lst1);
-	revrotate(&lst2);
+	revrotate(lst1, 'v');
+	revrotate(lst2, 'v');
 }

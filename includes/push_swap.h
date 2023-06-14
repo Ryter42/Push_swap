@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:56 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/31 18:29:49 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/03 20:12:54 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ typedef struct s_data
 	int	mediane;
 }	t_data;
 
-void	push(t_list **list1, t_list **list2);
-void	swap(t_list **lst);
-void	rotate(t_list **lst);
+void	push(t_list **list1, t_list **list2, char c);
+void	swap(t_list **lst, char c);
+void	rotate(t_list **lst, char c);
+void	revrotate(t_list **lst, char c);
 void	rr(t_list **lst1, t_list **lst2);
-void	rrr(t_list *lst1, t_list *lst2);
+void	rrr(t_list **lst1, t_list **lst2);
 void	tritab(t_data *data);
 int		tritabverif(t_data *data);
 int		veridouble(int *nb, int size);
@@ -38,13 +39,20 @@ int		strllen(char **str);
 int		*atotab(char **nbr);
 int		verisign(char *nb, int i);
 int 	nbverif(char *nb);
-int		mediane(t_data *data, t_list **lista, t_list **listb);
+void		mediane(t_data *data, t_list **lista, t_list **listb);
 int		init(int av, char **ac, t_data **data, t_list **lista, t_list **listb);
 int		*getint(int av, char **ac, t_data **data);
 t_list 	*getlst(t_data *data);
 int		tab_nbverif(int av, char **ac);
 t_list	*pars(int av, char **ac, t_data **data);
-void	revrotate(t_list **lst);
 t_list *lstfindavantlast(t_list *lst);
+int	findsup(t_data *data, t_list *lst, int v);
+int	findindex(t_list *lst, int value);
+int	nbrcoup(t_data *data, t_list *lista, t_list *listb, int ib);
+int	calculator(t_data *data, t_list *lista, t_list *listb);
+int	suplst(t_data *data, t_list *lst);
+int	minlst(t_data *data, t_list *lst);
+
+
 
 #endif
