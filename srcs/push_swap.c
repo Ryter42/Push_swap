@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:34 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/08 21:32:30 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/14 20:33:46 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int av, char **ac)
 	if (av < 2)
 		return (0);
 	if (init(av, ac, &data, &lista, &listb) == 0)
-		return (0);
+		return (write(1, "error\n", 6), 0);
 	algo(data, &lista, &listb);
 	// while (lista)
 	// {

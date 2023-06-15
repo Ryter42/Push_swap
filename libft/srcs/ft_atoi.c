@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:52:47 by emoreau           #+#    #+#             */
-/*   Updated: 2022/11/18 10:24:46 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/15 21:34:10 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,5 @@ int	ft_atoi(const char *nb)
 		nbr = nbr * 10 + nb[i] - 48;
 		i++;
 	}
-	return (nbr * s);
+		return (nbr * s);
 }
-
-
-// int	main(int av, char **ac)
-// {
-// 	if (av == 5)
-// 	{
-// 		printf("%d\n", ft_atoi(ac[1]));
-// 		printf("%d\n", ft_atoi(ac[2]));
-// 		printf("%d\n", ft_atoi(ac[3]));
-// 		printf("%d\n", ft_atoi(ac[4]));
-// 	}
-// }

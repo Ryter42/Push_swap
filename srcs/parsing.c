@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/30 19:47:01 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/15 21:45:14 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ int	strllen(char **str)
 	return (i);
 }
 
+int	intlen(int	i)
+{
+	int res;
+
+	if (i < 0)
+		res = 2;
+	else
+		res = 1;
+	while (i > 10 || i < -10)
+	{
+		i = i / 10;
+		res++;
+	}
+	return (res);
+}
+
 int	*atotab(char **nbr)
 {
 	int	*nb;
@@ -50,6 +66,8 @@ int	*atotab(char **nbr)
 	while (nbr[i])
 	{
 		nb[i] = ft_atoi(nbr[i]);
+		if (intlen(nb[i]) != ft_strlen(nbr[i]))
+			return (NULL);
 		i++;
 	}
 	return (nb);
