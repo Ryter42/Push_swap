@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:56 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/03 20:12:54 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/15 23:06:29 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,15 @@ t_list 	*getlst(t_data *data);
 int		tab_nbverif(int av, char **ac);
 t_list	*pars(int av, char **ac, t_data **data);
 t_list *lstfindavantlast(t_list *lst);
-int	findsup(t_data *data, t_list *lst, int v);
-int	findindex(t_list *lst, int value);
-int	nbrcoup(t_data *data, t_list *lista, t_list *listb, int ib);
-int	calculator(t_data *data, t_list *lista, t_list *listb);
-int	suplst(t_data *data, t_list *lst);
-int	minlst(t_data *data, t_list *lst);
+int		findsup(t_data *data, t_list *lst, int v);
+int		findindex(t_list *lst, int value);
+int		nbrcoup(t_data *data, t_list *lista, t_list *listb, int ib);
+int		calculator(t_data *data, t_list *lista, t_list *listb);
+int		suplst(t_data *data, t_list *lst);
+int		minlst(t_data *data, t_list *lst);
+int		intlen(int	i);
+void 	ft_free(t_data *data, t_list *lsta, t_list *lstb);
+
 
 
 

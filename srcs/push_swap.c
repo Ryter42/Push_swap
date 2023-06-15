@@ -6,11 +6,31 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:34 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/14 20:33:46 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/15 23:06:17 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void ft_free(t_data *data, t_list *lsta, t_list *lstb)
+{
+	int	i;
+
+	i = 0;
+	free(data->intnb);
+	while (data->charnb[i])
+	{
+		free(data->charnb[i]);
+		i++;
+	}
+	free(data->charnb);
+	while (lsta)
+	{
+		free(lsta);
+		lsta = lsta->next;
+	}
+	free(lstb);
+}
 
 int	main(int av, char **ac)
 {
@@ -23,6 +43,7 @@ int	main(int av, char **ac)
 	if (init(av, ac, &data, &lista, &listb) == 0)
 		return (write(1, "error\n", 6), 0);
 	algo(data, &lista, &listb);
+	ft_free(data, lista, listb);
 	// while (lista)
 	// {
 	// 	printf("%d\n", lista->value);
