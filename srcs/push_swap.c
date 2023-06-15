@@ -6,30 +6,48 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:34 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/15 23:06:17 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/15 23:32:24 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void ft_free(t_data *data, t_list *lsta, t_list *lstb)
+void	lstfree(t_list *lst)
+{
+	t_list *tmp;
+
+	while (lst)
+	{
+		tmp = lst->next;
+		free(lst);
+		lst = tmp;
+	}
+}
+
+void	datafree(t_data *data)
 {
 	int	i;
 
 	i = 0;
-	free(data->intnb);
+	if (data->intnb)
+		free(data->intnb);
 	while (data->charnb[i])
 	{
 		free(data->charnb[i]);
 		i++;
 	}
 	free(data->charnb);
-	while (lsta)
-	{
-		free(lsta);
-		lsta = lsta->next;
-	}
-	free(lstb);
+free(data);
+}
+
+void ft_free(t_data *data, t_list *lsta, t_list *lstb)
+{
+	if (data)
+		datafree(data);
+	if (lsta)
+		lstfree(lsta);
+	if (lstb)
+		lstfree(lstb);
 }
 
 int	main(int av, char **ac)

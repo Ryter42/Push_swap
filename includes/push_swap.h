@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:56 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/15 23:06:29 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/15 23:32:39 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ int		suplst(t_data *data, t_list *lst);
 int		minlst(t_data *data, t_list *lst);
 int		intlen(int	i);
 void 	ft_free(t_data *data, t_list *lsta, t_list *lstb);
+void	lstfree(t_list *lst);
+void	datafree(t_data *data);
+
 
 
 
