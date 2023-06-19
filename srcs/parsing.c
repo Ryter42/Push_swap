@@ -6,11 +6,40 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/19 15:49:49 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/19 15:57:09 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
+
+ char    *ft_strjoin2(char const *s1, char *s2)
+{
+    char    *str;
+    size_t    i;
+    size_t    j;
+
+    if (!s1)
+        s1 = ft_calloc(sizeof(char), 1);
+    if (!s2)
+        return (NULL);
+    j = 0;
+    str = malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
+    if (!str)
+        return (NULL);
+    i = 0;
+    while (s1[i])
+    {
+        str[i] = s1[i];
+        i++;
+    }
+    while (s2[j])
+    {
+        str[i + j] = s2[j];
+        j++;
+    }
+    str[i + j] = '\0';
+    return (str);
+} 
 
 char	*nbcat(int av, char **ac)
 {
@@ -23,9 +52,9 @@ char	*nbcat(int av, char **ac)
 	str_2 = NULL;
 	while (i < av)
 	{
-		str_2 = ft_strjoin(str, " ");
+		str_2 = ft_strjoin2(str, " ");
 		free(str);
-		str = ft_strjoin(str_2, ac[i]);
+		str = ft_strjoin2(str_2, ac[i]);
 		free(str_2);
 		i++;
 	}
