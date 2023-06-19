@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/19 20:04:56 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:45:25 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*nbcat(int av, char **ac)
 	while (i < av)
 	{
 		str_2 = ft_strjoin(str, " ");
-		free(str);
+		if (i != 2)
+			free(str);
 		str = ft_strjoin(str_2, ac[i]);
 		free(str_2);
 		i++;
