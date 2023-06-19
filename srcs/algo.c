@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:55 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/08 21:36:30 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/16 00:37:24 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,5 @@ void	mediane(t_data *data, t_list **lista, t_list **listb)
 			push(lista, listb, 'b');
 			rotate(listb, 'b');
 		}
-		// (*lista) = (*lista)->next;
 	}
 }
