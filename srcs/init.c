@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:00:57 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/19 15:47:33 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/19 16:02:20 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	*getint(int av, char **ac, t_data **data)
 	(*data)->charnb = ft_split(nb, ' ');
 	(*data)->intnb= atotab((*data)->charnb);
 	(*data)->nbnb = strllen((*data)->charnb);
-	free(nb);
+	// free(nb);
 	return ((*data)->intnb);
 }
 
