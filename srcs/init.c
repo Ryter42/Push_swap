@@ -6,7 +6,7 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:00:57 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/19 20:02:28 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/20 15:29:08 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,18 @@ int	tab_nbverif(int av, char **ac)
 
 t_list	*pars(int av, char **ac, t_data **data)
 {
-	if (tab_nbverif(av, ac) == 0)
-		return (0);
-	if (!getint(av, ac, data))
+	if (!getint(av, ac, data) || tab_nbverif(av, ac) == 0)
 		return (NULL);
+	// if (!getint(av, ac, data))
+	// 	return (NULL);
 	return(getlst(*data));
 }
+
+// t_list	*pars(int av, char **ac, t_data **data)
+// {
+// 	if (tab_nbverif(av, ac) == 0)
+// 		return (0);
+// 	if (!getint(av, ac, data))
+// 		return (NULL);
+// 	return(getlst(*data));
+// }

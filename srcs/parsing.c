@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/19 20:45:25 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/20 15:39:48 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	*atotab(char **nbr)
 	int	i;
 
 	i = 0;
-	nb = malloc(sizeof(int) * strllen(nbr));
+	nb = malloc(sizeof(int *) * strllen(nbr));
 	if (!nb)
 		return (NULL);
 	while (nbr[i])
