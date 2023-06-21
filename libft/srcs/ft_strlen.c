@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:16:25 by emoreau           #+#    #+#             */
-/*   Updated: 2022/11/16 14:40:01 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/21 13:16:43 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,9 @@ int	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+
+// int main (void)
+// {
+// 	char *str = NULL;
+// 	printf("%d\n", ft_strlen(str));
+// }
