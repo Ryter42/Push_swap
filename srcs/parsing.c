@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/20 21:36:42 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/20 21:46:30 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 char	*nbcat(int av, char **ac)
 {
 	char	*str;
+	char	*str2;
 	char	*tmp;
 	int		i;
 
 	i = 2;
-	tmp = NULL;
-	str = ft_strjoin(ac[1], tmp);
+	tmp = ac[1];
+	str2 = NULL;
+	str = ft_strjoin(tmp, str2);
 	while (i < av)
 	{
-		tmp = ft_strjoin(str, " ");
+		str2 = ft_strjoin(str, " ");
 		free(str);
-		str = ft_strjoin(tmp, ac[i]);
-		free(tmp);
+		str = ft_strjoin(str2, ac[i]);
+		free(str2);
 		i++;
 	}
 	return (str);
