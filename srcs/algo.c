@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:55 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/16 00:37:24 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/21 23:14:09 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,51 @@ int	minlst(t_data *data, t_list *lst)
 	return (i);
 }
 
-int	algo(t_data *data, t_list **lista, t_list **listb)
+void	tri_3(t_data *data, t_list **lst)
+{
+	if ((*lst)->value == data->intnb[data->nbnb - 1])
+		rotate(lst, 'a');
+	if ((*lst)->next->value == data->intnb[data->nbnb - 1])
+		revrotate(lst, 'a');
+	if ((*lst)->value > (*lst)->next->value)
+		swap(lst, 'a');
+}
+
+void tri_4(t_data *data, t_list **lsta, t_list **lstb)
+{
+	gotop(lsta, data->intnb[0], 'a');
+	push(lsta, lstb, 'b');
+	tri_3(data, lsta);
+	push(lstb, lsta, 'a');
+
+}
+
+void tri_5(t_data *data, t_list **lsta, t_list **lstb)
+{
+	gotop(lsta, data->intnb[0], 'a');
+	push(lsta, lstb, 'b');
+	gotop(lsta, data->intnb[1], 'a');
+	push(lsta, lstb, 'b');
+	tri_3(data, lsta);
+	push(lstb, lsta, 'a');
+	push(lstb, lsta, 'a');
+}
+
+void algo(t_data *data, t_list **lista, t_list **listb)
+{
+	if (data->nbnb == 2)
+		swap(lista, 'a');
+	else if (data->nbnb == 3)
+		tri_3(data, lista);
+	else if (data->nbnb == 4)
+		tri_4(data, lista, listb);
+	else if (data->nbnb == 5)
+		tri_5(data, lista, listb);
+	else
+		algotri(data, lista, listb);
+}
+
+void	algotri(t_data *data, t_list **lista, t_list **listb)
 {
 	int	value;
 
@@ -147,7 +191,6 @@ int	algo(t_data *data, t_list **lista, t_list **listb)
 		}
 	}
 	gotop(lista, data->intnb[0], 'a');
-	return (0);
 }
 
 void	mediane(t_data *data, t_list **lista, t_list **listb)
