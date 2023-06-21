@@ -6,7 +6,7 @@
 #    By: elias <elias@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 19:25:41 by emoreau           #+#    #+#              #
-#    Updated: 2023/05/31 17:16:23 by elias            ###   ########.fr        #
+#    Updated: 2023/06/21 13:49:02 by elias            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS	=	push_swap.c\
 			algo.c\
 			init.c\
 			verif.c\
-			parsing.c
+			parsing.c\
+			utils.c
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 

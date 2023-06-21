@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:56 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/16 01:50:31 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/21 13:48:35 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		strllen(char **str);
 int		*atotab(char **nbr);
 int		verisign(char *nb, int i);
 int 	nbverif(char *nb);
-void		mediane(t_data *data, t_list **lista, t_list **listb);
+void	mediane(t_data *data, t_list **lista, t_list **listb);
 int		init(int av, char **ac, t_data **data, t_list **lista, t_list **listb);
 int		*getint(int av, char **ac, t_data **data);
 t_list 	*getlst(t_data *data);
@@ -54,6 +54,7 @@ int		suplst(t_data *data, t_list *lst);
 int		minlst(t_data *data, t_list *lst);
 int		intlen(int	i);
 int		checklst(t_list *lst);
+int		isvide(char *str);
 void 	ft_free(t_data *data, t_list *lsta, t_list *lstb);
 void	lstfree(t_list *lst);
 void	datafree(t_data *data);
