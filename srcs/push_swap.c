@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:34 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/21 22:46:08 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/22 15:53:45 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ void ft_free(t_data *data, t_list *lsta, t_list *lstb)
 {
 	if (data)
 		datafree(data);
+	// while (lsta)
+	// {
+	// 	printf("%d\n", lsta->value);
+	// 	lsta = lsta->next;
+	// }
 	if (lsta)
 		lstfree(lsta);
 	if (lstb)
@@ -74,10 +79,10 @@ int	main(int av, char **ac)
 	if (checklst(lista) == 1)
 		return (ft_free(data, lista, listb), 0);
 	algo(data, &lista, &listb);
-	while (lista)
-	{
-		printf("%d\n", lista->value);
-		lista = lista->next;
-	}
+	// while (lista)
+	// {
+	// 	printf("%d\n", lista->value);
+	// 	lista = lista->next;
+	// }
 	return (ft_free(data, lista, listb), 0);
 }
