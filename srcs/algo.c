@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:55 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/21 23:14:09 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/22 23:13:14 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ void tri_5(t_data *data, t_list **lsta, t_list **lstb)
 void algo(t_data *data, t_list **lista, t_list **listb)
 {
 	if (data->nbnb == 2)
-		swap(lista, 'a');
+		rotate(lista, 'a');
 	else if (data->nbnb == 3)
 		tri_3(data, lista);
 	else if (data->nbnb == 4)
