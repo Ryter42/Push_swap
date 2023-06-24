@@ -3,31 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/20 15:39:48 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/24 21:38:05 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
+// char	*nbcat(int av, char **ac)
+// {
+// 	char	*str;
+// 	char	*str_2;
+// 	int		i;
+
+// 	i = 2;
+// 	str = ac[1];
+// 	str_2 = NULL;
+// 	while (i < av)
+// 	{
+// 		str_2 = ft_strjoin(str, " ");
+// 		if (i != 2)
+// 			free(str);
+// 		str = ft_strjoin(str_2, ac[i]);
+// 		free(str_2);
+// 		i++;
+// 	}
+// 	return (str);
+// }
+
 char	*nbcat(int av, char **ac)
 {
 	char	*str;
-	char	*str_2;
+	char	*str2;
+	char	*tmp;
 	int		i;
 
 	i = 2;
-	str = ac[1];
-	str_2 = NULL;
+	tmp = ac[1];
+	str2 = " ";
+	str = ft_strjoin(tmp, str2);
 	while (i < av)
 	{
-		str_2 = ft_strjoin(str, " ");
-		if (i != 2)
-			free(str);
-		str = ft_strjoin(str_2, ac[i]);
-		free(str_2);
+		str2 = ft_strjoin(str, " ");
+		free(str);
+		str = ft_strjoin(str2, ac[i]);
+		free(str2);
 		i++;
 	}
 	return (str);
