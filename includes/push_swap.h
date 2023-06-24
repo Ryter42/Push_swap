@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:56 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/16 01:50:31 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/24 21:33:12 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,16 @@ void	tritab(t_data *data);
 int		tritabverif(t_data *data);
 int		veridouble(int *nb, int size);
 int		algo(t_data *data, t_list **lista, t_list **listb);
+void	algotri(t_data *data, t_list **lista, t_list **listb);
+void	tri_5(t_data *data, t_list **lsta, t_list **lstb);
+void	tri_4(t_data *data, t_list **lsta, t_list **lstb);
+void	tri_3(t_data *data, t_list **lst);
 char	*nbcat(int av, char **ac);
 int		strllen(char **str);
 int		*atotab(char **nbr);
 int		verisign(char *nb, int i);
 int 	nbverif(char *nb);
-void		mediane(t_data *data, t_list **lista, t_list **listb);
+void	mediane(t_data *data, t_list **lista, t_list **listb);
 int		init(int av, char **ac, t_data **data, t_list **lista, t_list **listb);
 int		*getint(int av, char **ac, t_data **data);
 t_list 	*getlst(t_data *data);
