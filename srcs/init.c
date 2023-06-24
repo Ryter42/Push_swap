@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:00:57 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/20 15:29:08 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/24 21:41:42 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,54 @@ t_list *getlst(t_data *data)
 	return (lista);
 }
 
-int	tab_nbverif(int av, char **ac)
+int	isvide(char *str)
 {
 	int	i;
 
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == 1)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	tab_nbverif(int av, char **ac)
+{
+	int	i;
+	int	verinum;
+
+	verinum = 0;
 	i = 1;
 	while (i < av)
 	{
 		if (nbverif(ac[i]) == 0)
 			return (0);
+		if (isvide(ac[i]) == 1)
+			verinum = 1;		
 		i++;
 	}
-	return (1);
+	if (verinum == 0)
+		return (0);
+	else
+		return (1);
 }
+
+// int	tab_nbverif(int av, char **ac)
+// {
+// 	int	i;
+
+// 	i = 1;
+// 	while (i < av)
+// 	{
+// 		if (nbverif(ac[i]) == 0)
+// 			return (0);
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
 t_list	*pars(int av, char **ac, t_data **data)
 {
