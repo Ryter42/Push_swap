@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:56 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/21 22:39:40 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/24 21:35:30 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int		tritabverif(t_data *data);
 int		veridouble(int *nb, int size);
 void	algo(t_data *data, t_list **lista, t_list **listb);
 void	algotri(t_data *data, t_list **lista, t_list **listb);
+void	tri_5(t_data *data, t_list **lsta, t_list **lstb);
+void	tri_4(t_data *data, t_list **lsta, t_list **lstb);
 void	tri_3(t_data *data, t_list **lst);
-void	 tri_4(t_data *data, t_list **lsta, t_list **lstb);
-void	 tri_5(t_data *data, t_list **lsta, t_list **lstb);
 char	*nbcat(int av, char **ac);
 int		strllen(char **str);
 int		*atotab(char **nbr);
@@ -58,7 +58,6 @@ int		suplst(t_data *data, t_list *lst);
 int		minlst(t_data *data, t_list *lst);
 int		intlen(int	i);
 int		checklst(t_list *lst);
-int		isvide(char *str);
 void 	ft_free(t_data *data, t_list *lsta, t_list *lstb);
 void	lstfree(t_list *lst);
 void	datafree(t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:34 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/22 23:16:22 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/20 15:12:36 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,5 @@ int	main(int av, char **ac)
 	if (checklst(lista) == 1)
 		return (ft_free(data, lista, listb), 0);
 	algo(data, &lista, &listb);
-	while (lista)
-	{
-		printf("%d\n", lista->value);
-		lista = lista->next;
-	}
 	return (ft_free(data, lista, listb), 0);
 }
