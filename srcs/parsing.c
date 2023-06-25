@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/24 21:38:05 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/25 20:27:05 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	*atotab(char **nbr)
 	{
 		nb[i] = ft_atoi(nbr[i]);
 		if (intlen(nb[i]) != ft_strlen(nbr[i]))
-			return (NULL);
+			return (free(nb), NULL);
 		i++;
 	}
 	return (nb);
