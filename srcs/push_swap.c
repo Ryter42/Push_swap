@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:34 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/25 20:07:51 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/25 20:49:49 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	main(int av, char **ac)
 	if (av < 2)
 		return (0);
 	if (init(av, ac, &data, &lista, &listb) == 0)
-		return (ft_free(data, lista, listb), write(1, "error\n", 6), 0);
+		return (ft_free(data, lista, listb), write(1, "Error\n", 6), 0);
 	if (checklst(lista) == 1)
 		return (ft_free(data, lista, listb), 0);
 	algo(data, &lista, &listb);

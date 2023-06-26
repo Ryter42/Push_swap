@@ -6,7 +6,7 @@
 /*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/25 20:27:05 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/26 21:55:21 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,50 @@ int	intlen(int	i)
 	return (res);
 }
 
+// int	my_atoi(const char *nb)
+// {
+// 	int					i;
+// 	int					s;
+// 	long long int		nbr;
+// 	char				*n;
+
+// 	n = (char *)nb;
+// 	nbr = 0;
+// 	s = 1;
+// 	i = 0;
+// 	while ((n[i] > 6 && n[i] < 14) || n[i] == 32)
+// 		i++;
+// 	if (nb[i] == '-' || nb[i] == '+')
+// 	{
+// 		if (nb[i] == '-')
+// 			s = -s;
+// 		i++;
+// 	}
+// 	while (nb[i] > 47 && nb[i] < 58)
+// 	{
+// 		nbr = nbr * 10 + nb[i] - 48;
+// 		i++;
+// 	}
+// 	if (nbr * s > 2147483647 || nbr * s < -2147483648)
+// 		return (nbr * s);
+// }
+
+int	zero_num(char *str)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	n = 0;
+	while (str[i] == '0' || str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] != '-')
+			n++;
+		i++;
+	}
+	return(n);
+}
+
 int	*atotab(char **nbr)
 {
 	int	*nb;
@@ -93,7 +137,7 @@ int	*atotab(char **nbr)
 	while (nbr[i])
 	{
 		nb[i] = ft_atoi(nbr[i]);
-		if (intlen(nb[i]) != ft_strlen(nbr[i]))
+		if (intlen(nb[i]) + zero_num(nbr[i]) != ft_strlen(nbr[i]))
 			return (free(nb), NULL);
 		i++;
 	}
