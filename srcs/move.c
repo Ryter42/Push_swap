@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:52 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/03 16:12:52 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/30 15:00:40 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void push(t_list **list1, t_list **list2, char c)
+void	push(t_list **list1, t_list **list2, char c)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!(*list1))
 		return ;
@@ -30,7 +30,7 @@ void push(t_list **list1, t_list **list2, char c)
 
 void	rotate(t_list **lst, char c)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!(*lst))
 		return ;
@@ -43,21 +43,11 @@ void	rotate(t_list **lst, char c)
 	else if (c == 'b')
 		write(1, "rb\n", 3);
 	else
-	write(1, "rr\n", 3);
+		write(1, "rr\n", 3);
 }
 
 void	revrotate(t_list **lst, char c)
 {
-	// t_list	*tmp;
-	// t_list	*tmp2;
-
-	// if (!(*lst))
-	// 	return ;
-	// tmp = lstfindavantlast(*lst);
-	// tmp2 = tmp->next;
-	// tmp->next = NULL;
-	// tmp2->next = *lst;
-	// *lst = tmp2;
 	t_list	*temp;
 	t_list	*temp_2;
 

@@ -3,35 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:30 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/26 21:55:21 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/30 15:12:53 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
-
-// char	*nbcat(int av, char **ac)
-// {
-// 	char	*str;
-// 	char	*str_2;
-// 	int		i;
-
-// 	i = 2;
-// 	str = ac[1];
-// 	str_2 = NULL;
-// 	while (i < av)
-// 	{
-// 		str_2 = ft_strjoin(str, " ");
-// 		if (i != 2)
-// 			free(str);
-// 		str = ft_strjoin(str_2, ac[i]);
-// 		free(str_2);
-// 		i++;
-// 	}
-// 	return (str);
-// }
+#include "../includes/push_swap.h"
 
 char	*nbcat(int av, char **ac)
 {
@@ -55,60 +34,6 @@ char	*nbcat(int av, char **ac)
 	return (str);
 }
 
-int	strllen(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	intlen(int	i)
-{
-	int res;
-
-	if (i < 0)
-		res = 2;
-	else
-		res = 1;
-	while (i > 10 || i < -10)
-	{
-		i = i / 10;
-		res++;
-	}
-	return (res);
-}
-
-// int	my_atoi(const char *nb)
-// {
-// 	int					i;
-// 	int					s;
-// 	long long int		nbr;
-// 	char				*n;
-
-// 	n = (char *)nb;
-// 	nbr = 0;
-// 	s = 1;
-// 	i = 0;
-// 	while ((n[i] > 6 && n[i] < 14) || n[i] == 32)
-// 		i++;
-// 	if (nb[i] == '-' || nb[i] == '+')
-// 	{
-// 		if (nb[i] == '-')
-// 			s = -s;
-// 		i++;
-// 	}
-// 	while (nb[i] > 47 && nb[i] < 58)
-// 	{
-// 		nbr = nbr * 10 + nb[i] - 48;
-// 		i++;
-// 	}
-// 	if (nbr * s > 2147483647 || nbr * s < -2147483648)
-// 		return (nbr * s);
-// }
-
 int	zero_num(char *str)
 {
 	int	i;
@@ -122,7 +47,7 @@ int	zero_num(char *str)
 			n++;
 		i++;
 	}
-	return(n);
+	return (n);
 }
 
 int	*atotab(char **nbr)
@@ -165,4 +90,3 @@ void	tritab(t_data *data)
 		i = 0;
 	}
 }
-

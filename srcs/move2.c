@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:16 by elias             #+#    #+#             */
-/*   Updated: 2023/06/02 23:06:09 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/30 15:01:52 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	swap(t_list **lst, char c)
 		write(1, "sb\n", 3);
 }
 
-t_list *lstfindavantlast(t_list *lst)
+t_list	*lstfindavantlast(t_list *lst)
 {
 	if (lst->next)
 	{
 		while (lst->next->next)
 			lst = lst->next;
 	}
-	return(lst);
+	return (lst);
 }

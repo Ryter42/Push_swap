@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:34 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/25 20:49:49 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/30 15:23:40 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	lstfree(t_list *lst)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	while (lst)
 	{
@@ -40,7 +40,7 @@ void	datafree(t_data *data)
 	free(data);
 }
 
-void ft_free(t_data *data, t_list *lsta, t_list *lstb)
+void	ft_free(t_data *data, t_list *lsta, t_list *lstb)
 {
 	if (data)
 		datafree(data);
@@ -67,9 +67,10 @@ int	main(int av, char **ac)
 	t_list	*listb;
 	t_data	*data;
 
+	listb = NULL;
 	if (av < 2)
 		return (0);
-	if (init(av, ac, &data, &lista, &listb) == 0)
+	if (init(av, ac, &data, &lista) == 0)
 		return (ft_free(data, lista, listb), write(1, "Error\n", 6), 0);
 	if (checklst(lista) == 1)
 		return (ft_free(data, lista, listb), 0);

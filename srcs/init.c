@@ -3,48 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:00:57 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/24 21:41:42 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/30 15:22:44 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int	init(int av, char **ac, t_data **data, t_list **lista, t_list **listb)
+int	init(int av, char **ac, t_data **data, t_list **lista)
 {
 	*data = malloc(sizeof(t_data));
 	if (!*data)
 		return (0);
-	*listb = NULL;
 	*lista = pars(av, ac, data);
 	if (!*lista)
 		return (0);
 	tritab(*data);
 	if (veridouble((*data)->intnb, (*data)->nbnb) == 0)
-		return(0);
+		return (0);
 	(*data)->mediane = (*data)->intnb[(*data)->nbnb / 2];
 	return (1);
 }
 
 int	*getint(int av, char **ac, t_data **data)
 {
-	char 	*nb;
+	char	*nb;
 
 	nb = nbcat(av, ac);
 	(*data)->charnb = ft_split(nb, ' ');
-	(*data)->intnb= atotab((*data)->charnb);
+	(*data)->intnb = atotab((*data)->charnb);
 	(*data)->nbnb = strllen((*data)->charnb);
 	free(nb);
 	return ((*data)->intnb);
 }
 
-t_list *getlst(t_data *data)
+t_list	*getlst(t_data *data)
 {
 	t_list	*lista;
 	t_list	*tmp;
-	int	i;
+	int		i;
 
 	i = 1;
 	lista = lstnewint(data->intnb[0]);
@@ -55,20 +54,6 @@ t_list *getlst(t_data *data)
 		i++;
 	}
 	return (lista);
-}
-
-int	isvide(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]) == 1)
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 int	tab_nbverif(int av, char **ac)
@@ -83,7 +68,7 @@ int	tab_nbverif(int av, char **ac)
 		if (nbverif(ac[i]) == 0)
 			return (0);
 		if (isvide(ac[i]) == 1)
-			verinum = 1;		
+			verinum = 1;
 		i++;
 	}
 	if (verinum == 0)
@@ -110,9 +95,7 @@ t_list	*pars(int av, char **ac, t_data **data)
 {
 	if (!getint(av, ac, data) || tab_nbverif(av, ac) == 0)
 		return (NULL);
-	// if (!getint(av, ac, data))
-	// 	return (NULL);
-	return(getlst(*data));
+	return (getlst(*data));
 }
 
 // t_list	*pars(int av, char **ac, t_data **data)

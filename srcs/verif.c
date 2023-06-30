@@ -6,11 +6,11 @@
 /*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:06:31 by emoreau           #+#    #+#             */
-/*   Updated: 2023/05/30 18:07:35 by emoreau          ###   ########.fr       */
+/*   Updated: 2023/06/30 15:15:57 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	veridouble(int *nb, int size)
 {
@@ -20,7 +20,7 @@ int	veridouble(int *nb, int size)
 	while (i < size)
 	{
 		if (nb[i] == nb[i - 1])
-			return(0);
+			return (0);
 		i++;
 	}
 	return (1);
@@ -47,10 +47,10 @@ int	verisign(char *nb, int i)
 		if (i == 0 || nb[i - 1] == ' ')
 			return (1);
 	}
-	return(0);
+	return (0);
 }
 
-int nbverif(char *nb)
+int	nbverif(char *nb)
 {
 	int	i;
 

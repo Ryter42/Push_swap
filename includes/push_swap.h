@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 17:47:56 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/24 21:35:30 by elias            ###   ########.fr       */
+/*   Updated: 2023/06/30 15:27:51 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 
 typedef struct s_data
 {
-	// t_list	*lista;
-	// t_list	*listb;
-	char **charnb;
-	int	*intnb;
-	int	nbnb;
-	int	mediane;
+	char	**charnb;
+	int		*intnb;
+	int		nbnb;
+	int		mediane;
 }	t_data;
 
 void	push(t_list **list1, t_list **list2, char c);
@@ -42,28 +40,26 @@ char	*nbcat(int av, char **ac);
 int		strllen(char **str);
 int		*atotab(char **nbr);
 int		verisign(char *nb, int i);
-int 	nbverif(char *nb);
+int		nbverif(char *nb);
 void	mediane(t_data *data, t_list **lista, t_list **listb);
-int		init(int av, char **ac, t_data **data, t_list **lista, t_list **listb);
+int		init(int av, char **ac, t_data **data, t_list **lista);
 int		*getint(int av, char **ac, t_data **data);
-t_list 	*getlst(t_data *data);
+t_list	*getlst(t_data *data);
 int		tab_nbverif(int av, char **ac);
 t_list	*pars(int av, char **ac, t_data **data);
-t_list *lstfindavantlast(t_list *lst);
+t_list	*lstfindavantlast(t_list *lst);
 int		findsup(t_data *data, t_list *lst, int v);
 int		findindex(t_list *lst, int value);
 int		nbrcoup(t_data *data, t_list *lista, t_list *listb, int ib);
 int		calculator(t_data *data, t_list *lista, t_list *listb);
+void	gotop(t_list **lst, int value, char c);
 int		suplst(t_data *data, t_list *lst);
 int		minlst(t_data *data, t_list *lst);
-int		intlen(int	i);
+int		intlen(int i);
 int		checklst(t_list *lst);
-void 	ft_free(t_data *data, t_list *lsta, t_list *lstb);
+int		isvide(char *str);
+void	ft_free(t_data *data, t_list *lsta, t_list *lstb);
 void	lstfree(t_list *lst);
 void	datafree(t_data *data);
-
-
-
-
 
 #endif
