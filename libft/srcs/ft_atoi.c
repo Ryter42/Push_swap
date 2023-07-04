@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:52:47 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/15 21:34:10 by elias            ###   ########.fr       */
+/*   Updated: 2023/07/04 13:40:46 by emoreau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ int	ft_atoi(const char *nb)
 		nbr = nbr * 10 + nb[i] - 48;
 		i++;
 	}
-		return (nbr * s);
+	return (nbr * s);
 }
