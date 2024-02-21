@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:06:29 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/30 15:17:46 by emoreau          ###   ########.fr       */
+/*   Updated: 2024/02/11 02:35:33 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	mediane(t_data *data, t_list **lista, t_list **listb)
 {
-	while (*lista)
+	while (ft_lstsize(*lista) > 1)
 	{
 		if ((*lista)->value <= data->mediane)
 			push(lista, listb, 'b');

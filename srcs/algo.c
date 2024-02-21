@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:05:55 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/30 15:16:59 by emoreau          ###   ########.fr       */
+/*   Updated: 2024/02/11 00:50:44 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	algotri(t_data *data, t_list **lista, t_list **listb)
 	int	value;
 
 	mediane(data, lista, listb);
-	push(listb, lista, 'a');
+	// push(listb, lista, 'a');
 	while (ft_lstsize(*listb) != 0)
 	{
 		value = calculator(data, *lista, *listb);

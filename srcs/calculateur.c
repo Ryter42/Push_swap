@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   caluculateur.c                                     :+:      :+:    :+:   */
+/*   calculateur.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emoreau <emoreau@student.42.fr>            +#+  +:+       +#+        */
+/*   By: elias <elias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 15:08:31 by emoreau           #+#    #+#             */
-/*   Updated: 2023/06/30 15:11:46 by emoreau          ###   ########.fr       */
+/*   Updated: 2024/02/11 03:49:50 by elias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	calculator(t_data *data, t_list *lista, t_list *listb)
 	int	res;
 	int	value;
 	int	indexb;
+	// int lst_size;
 
+	// lst_size = ft_lstsize(listb);
 	res = 2147483647;
 	indexb = 1;
 	if (suplst(data, lista) < minlst(data, listb))
@@ -41,6 +43,8 @@ int	nbrcoup(t_data *data, t_list *lista, t_list *listb, int ib)
 	int	i;
 
 	sup = findindex(lista, findsup(data, lista, listb->value));
+	// if (sup == 0)
+	// 	return (-1);
 	if (ib < ft_lstsize(listb) / 2)
 	{
 		if (sup < ft_lstsize(lista) / 2)
@@ -51,9 +55,9 @@ int	nbrcoup(t_data *data, t_list *lista, t_list *listb, int ib)
 	else
 	{
 		if (sup < ft_lstsize(lista) / 2)
-			i = sup + ft_lstsize(listb) - ib;
+			i = sup + ft_lstsize(listb);
 		else
-			i = ft_lstsize(lista) - sup + ft_lstsize(listb) - ib;
+			i = ft_lstsize(lista) - sup + ft_lstsize(listb);
 	}
 	return (i);
 }
